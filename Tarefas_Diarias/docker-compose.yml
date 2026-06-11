@@ -1,0 +1,48 @@
+# =============================================================================
+# DOCKER COMPOSE - MySQL + API TarefaExpress
+# =============================================================================
+# docker compose up --build   → constrói e sobe
+# docker compose up -d        → sobe em segundo plano
+# docker compose down         → para e remove containers
+# =============================================================================
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: tarefaexpress-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: tarefas_diarias
+      MYSQL_USER: tarefas_user
+      MYSQL_PASSWORD: jesuscristo
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: tarefaexpress-api
+    restart: unless-stopped
+    depends_on:
+      mysql:
+        condition: service_healthy
+    environment:
+      # Dentro do Docker, "mysql" resolve para o container do MySQL
+      ConnectionStrings__DefaultConnection: "Server=mysql;Port=3306;Database=tarefas_diarias;User=tarefas_user;Password=jesuscristo;"
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://+:8080
+    ports:
+      - "8080:8080"
+
+volumes:
+  mysql_data:

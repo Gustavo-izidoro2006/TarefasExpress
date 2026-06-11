@@ -1,0 +1,350 @@
+================================================================================
+                    TAREFAEXPRESS - DOCUMENTAÇÃO DE PROJETO
+                      Para Equipe de Front-end (Node.js/React)
+================================================================================
+
+📋 SOBRE O PROJETO
+
+TarefaExpress é uma API REST de gerenciamento de tarefas colaborativas 
+construída em ASP.NET Core com Entity Framework Core e MySQL.
+
+O projeto segue padrões profissionais:
+- Controllers expõem rotas HTTP
+- Services implementam a lógica de negócio
+- DTOs (Data Transfer Objects) definem contratos de entrada/saída
+- Entities representam o modelo de domínio
+- Injeção de Dependência para maior testabilidade e desacoplamento
+
+================================================================================
+📦 PRINCIPAIS ENTIDADES & ESTRUTURA DE DADOS
+================================================================================
+
+1. USUÁRIO (Usuario)
+   - Id (Guid): Identificador único
+   - NomeCompleto: Nome do usuário
+   - Email: Email único
+   - UrlAvatar: Foto de perfil (opcional)
+   - NumeroTelefone: Telefone (opcional)
+   - Biografia: Descrição (opcional)
+   - Status: Ativo/Inativo/Suspenso
+   - UltimoLoginEm: Data do último acesso
+   - Relacionamentos: Participa de Grupos, Cria Tarefas, Recebe Convites
+
+2. GRUPO (Grupo)
+   - Id (Guid): Identificador único
+   - Nome: Nome do grupo
+   - Descricao: Descrição (opcional)
+   - Tipo: Empresa / Escola / Departamento / Projeto
+   - IdUsuarioCriador: Quem criou
+   - EstaArquivado: Pode ser arquivado
+   - Relacionamentos: Contém usuários, contém tarefas, chat em grupo
+
+3. TAREFA / ITEMTAREFA (Tarefa)
+   - Id (Guid): Identificador único
+   - IdGrupo: A qual grupo pertence
+   - IdUsuarioCriador: Quem criou
+   - Titulo: Título da tarefa
+   - Descricao: Descrição (opcional)
+   - Status: Pendente / Em Progresso / Concluída / Cancelada
+   - Prioridade: Baixa / Normal / Alta / Urgente
+   - VenceEm: Data de vencimento (opcional)
+   - IniciadaEm: Data de início (opcional)
+   - Relacionamentos: Responsáveis, Comentários, Anexos, Avisos
+
+4. CATEGORIA (Categoria)
+   - Id (int): Identificador único
+   - Nome: Nome da categoria
+   - Uso: Classificação de tarefas por tipo/tema
+
+5. CHAT & MENSAGENS (Chat, MensagemChat)
+   - Comunicação em tempo real entre membros do grupo
+   - IdGrupo: Associado ao grupo
+   - IdUsuario: Quem enviou
+   - Conteudo: Texto da mensagem
+   - CriadoEm: Data/hora
+
+6. COMENTÁRIOS EM TAREFAS (ComentarioTarefa)
+   - Discussão específica em cada tarefa
+   - IdTarefa: Comentário em qual tarefa
+   - IdUsuario: Quem comentou
+   - Conteudo: Texto
+   - CriadoEm: Data/hora
+
+7. RESPONSÁVEIS DE TAREFA (ResponsaveisTarefa)
+   - Relacionamento muitos-para-muitos
+   - Uma tarefa pode ter múltiplos responsáveis
+   - Um usuário pode ter múltiplas tarefas atribuídas
+
+8. USUÁRIOS EM GRUPOS (UsuarioGrupo)
+   - Relacionamento muitos-para-muitos
+   - Define a relação entre usuário e grupo
+   - Possível campo de Papel: Admin / Membro / Observador
+
+9. CONVITES DE GRUPO (ConviteGrupo)
+   - Convite pendente para entrar em um grupo
+   - IdGrupo: Grupo de destino
+   - IdUsuarioCriador: Quem enviou
+   - IdUsuarioDestino: Para quem
+   - Status: Pendente / Aceito / Recusado
+
+10. OUTROS (Avisos, Advertências, Relatórios, Anexos, etc.)
+    - Notificações, alertas e documentos complementares
+    - Suportam a funcionalidade de tarefas de forma expandida
+
+================================================================================
+🔌 ENDPOINTS DISPONÍVEIS (ATUAL)
+================================================================================
+
+GET /api/Categorias
+  → Retorna todas as categorias
+  Resposta: [{ "id": 1, "nome": "Urgente" }, ...]
+
+POST /api/Categorias
+  → Cria uma nova categoria
+  Body: { "nome": "string" }
+
+GET /api/Categorias/{id}
+  → Retorna uma categoria específica
+
+PUT /api/Categorias/{id}
+  → Atualiza completamente uma categoria
+
+PATCH /api/Categorias/{id}
+  → Atualiza parcialmente uma categoria
+
+DELETE /api/Categorias/{id}
+  → Remove uma categoria
+
+Nota: Usuários e outros recursos estão em desenvolvimento/planejamento.
+
+================================================================================
+🎨 ESTRUTURA RECOMENDADA PARA O FRONT-END (React/Node.js)
+================================================================================
+
+PASTAS SUGERIDAS:
+
+src/
+├── components/
+│   ├── Auth/
+│   │   ├── LoginForm.jsx
+│   │   ├── RegisterForm.jsx
+│   │   └── PasswordRecovery.jsx
+│   ├── Sidebar/
+│   │   ├── Sidebar.jsx
+│   │   ├── GroupList.jsx
+│   │   └── UserMenu.jsx
+│   ├── Tasks/
+│   │   ├── TaskCard.jsx
+│   │   ├── TaskForm.jsx
+│   │   ├── TaskFilters.jsx
+│   │   └── TaskDetails.jsx
+│   ├── Groups/
+│   │   ├── GroupCard.jsx
+│   │   ├── GroupForm.jsx
+│   │   └── MembersList.jsx
+│   ├── Chat/
+│   │   ├── ChatWindow.jsx
+│   │   ├── MessageList.jsx
+│   │   └── MessageInput.jsx
+│   ├── Common/
+│   │   ├── Header.jsx
+│   │   ├── Footer.jsx
+│   │   ├── LoadingSpinner.jsx
+│   │   └── Modal.jsx
+│   └── Profile/
+│       ├── UserProfile.jsx
+│       └── ProfileSettings.jsx
+├── pages/
+│   ├── Dashboard.jsx
+│   ├── Login.jsx
+│   ├── Register.jsx
+│   ├── GroupDetail.jsx
+│   ├── TaskDetail.jsx
+│   ├── Settings.jsx
+│   ├── NotFound.jsx
+│   └── Groups.jsx
+├── services/
+│   ├── api.js (cliente HTTP)
+│   ├── categoriaService.js
+│   ├── usuarioService.js
+│   ├── grupoService.js
+│   ├── tarefaService.js
+│   └── chatService.js
+├── store/ (Redux/Context API)
+│   ├── authSlice.js
+│   ├── grupoSlice.js
+│   ├── tarefaSlice.js
+│   └── store.js
+├── hooks/
+│   ├── useAuth.js
+│   ├── useTasks.js
+│   ├── useGroups.js
+│   └── useApi.js
+├── styles/
+│   └── globals.css
+├── utils/
+│   ├── helpers.js
+│   ├── validators.js
+│   └── formatters.js
+└── App.jsx
+
+================================================================================
+📄 SEÇÕES/PÁGINAS PRINCIPAIS
+================================================================================
+
+1. DASHBOARD / HOME
+   - Visão geral de tarefas do usuário
+   - Tarefas próximas a vencer
+   - Últimas atividades
+
+2. AUTENTICAÇÃO
+   - Login
+   - Cadastro (Registro)
+   - Recuperação de Senha
+   - Validação de Email
+
+3. GRUPOS
+   - Lista de grupos do usuário
+   - Criar novo grupo
+   - Visualizar detalhes do grupo
+   - Gerenciar membros
+   - Convidar usuários
+   - Arquivar grupo
+
+4. TAREFAS
+   - Criar tarefa
+   - Listar tarefas (filtros: status, prioridade, vencimento)
+   - Visualizar detalhes da tarefa
+   - Editar tarefa
+   - Atualizar status (Pendente → Em Progresso → Concluída)
+   - Atribuir responsáveis
+   - Definir datas e prioridades
+   - Adicionar comentários
+   - Anexar arquivos
+
+5. CATEGORIAS
+   - Listar categorias
+   - Criar/editar categoria
+   - Filtrar tarefas por categoria
+
+6. CHAT EM GRUPO
+   - Mensagens entre membros do grupo
+   - Notificações de novas mensagens
+   - Histórico de chat
+
+7. COMENTÁRIOS EM TAREFAS
+   - Seção de discussão dentro de cada tarefa
+   - Editar/deletar próprios comentários
+
+8. PERFIL DO USUÁRIO
+   - Visualizar perfil (avatar, nome, email, telefone, bio)
+   - Editar informações pessoais
+   - Alterar senha
+   - Definir preferências
+
+9. CONVITES & NOTIFICAÇÕES
+   - Receber convites de grupo
+   - Aceitar/recusar convite
+   - Central de notificações
+
+10. RELATÓRIOS/ESTATÍSTICAS
+    - Tarefas concluídas por período
+    - Produtividade do grupo
+    - Gráficos de progresso
+
+================================================================================
+🧩 COMPONENTES REUTILIZÁVEIS
+================================================================================
+
+- Button: Variações (primary, secondary, danger)
+- Card: Exibição de conteúdo modular
+- Modal/Dialog: Para confirmações e formulários
+- FormInput/FormGroup: Para captura de dados
+- Avatar: Foto de perfil com fallback
+- Badge: Status, prioridade
+- Dropdown/Menu: Ações contextuais
+- DatePicker: Seleção de datas
+- Loader: Indicador de carregamento
+- Toast/Alert: Notificações
+
+================================================================================
+🔗 ESTRUTURA DE NAVEGAÇÃO
+================================================================================
+
+App Layout
+├── Header (Logo, User Menu, Notifications)
+├── Sidebar
+│   ├── Dashboard
+│   ├── Meus Grupos
+│   │   ├── [Grupo 1]
+│   │   ├── [Grupo 2]
+│   │   └── + Novo Grupo
+│   ├── Minhas Tarefas
+│   ├── Categorias
+│   ├── Configurações
+│   └── Sair
+└── Main Content Area
+    └── [Página/Tela Ativa]
+
+================================================================================
+🚀 FLUXOS PRINCIPAIS DE USUÁRIO
+================================================================================
+
+1. ONBOARDING
+   SignUp → Email Verification → Complete Profile → Dashboard
+
+2. CRIAR GRUPO
+   New Group → Add Members → Start Creating Tasks
+
+3. GERENCIAR TAREFA
+   Create Task → Assign Users → Track Status → Complete Task
+
+4. COLABORAÇÃO
+   Comment on Task → Receive Notifications → Update in Real-time
+
+5. CHAT GRUPAL
+   Send Message → Receive in Real-time → Notification
+
+================================================================================
+⚙️ INTEGRAÇÃO COM API
+================================================================================
+
+Base URL: http://localhost:8080 (Docker) ou http://localhost:5155 (Local)
+Content-Type: application/json
+Autenticação: JWT Token (esperado, a ser implementado nos próximos endpoints)
+Tratamento de Erros: Status codes HTTP padrão (400, 401, 404, 500)
+
+================================================================================
+📝 PRÓXIMOS PASSOS (BACK-END)
+================================================================================
+
+[ ] Implementar endpoints de Usuários (CRUD completo)
+[ ] Implementar endpoints de Grupos (CRUD completo)
+[ ] Implementar endpoints de Tarefas (CRUD completo)
+[ ] Autenticação JWT
+[ ] Endpoints de Chat
+[ ] Endpoints de Comentários
+[ ] WebSocket para real-time (opcional)
+[ ] Testes automatizados
+
+================================================================================
+📌 RESUMO PARA EQUIPE DE FRONT-END
+================================================================================
+
+Este documento fornece a visão completa do projeto TarefaExpress. Use-o como
+referência para:
+
+1. Estruturar componentes, páginas e navegação
+2. Entender as entidades e relacionamentos
+3. Planejar os fluxos de usuário
+4. Definir a estrutura de pastas do projeto React/Node.js
+5. Integrar com os endpoints da API conforme forem desenvolvidos
+
+O projeto é um sistema colaborativo de gerenciamento de tarefas com suporte
+a grupos, chat, comentários e diferentes tipos de usuários.
+
+Data da Documentação: 30 de março de 2026
+Versão: 1.0
+Status: Desenvolvimento
+
+================================================================================

@@ -1,0 +1,66 @@
+Aqui vai um prompt forte, direto e bem completo para você copiar e colar no Claude:
+
+```text
+Você é um engenheiro de software sênior full stack e vai analisar duas pastas de um projeto React com backend separado.
+
+Objetivo:
+Quero que você analise completamente as duas pastas do projeto, encontre os erros, corrija tudo o que estiver impedindo a aplicação de funcionar corretamente e devolva uma versão funcional e consistente do sistema.
+
+Contexto:
+- O projeto tem front-end e back-end em pastas separadas.
+- A aplicação está com falhas para buscar dados, cadastro, login, grupos e outras funções.
+- Há uso de Docker Desktop e possivelmente banco local.
+- Quero que tudo funcione de verdade, sem dados placeholder, sem mocks, sem respostas fictícias.
+- As funcionalidades precisam operar com lógica real, integração real com backend e banco, e sem quebrar o fluxo da aplicação.
+
+O que você deve fazer:
+1. Analisar a estrutura completa das duas pastas.
+2. Identificar todos os problemas técnicos que estiverem quebrando a aplicação.
+3. Corrigir:
+   - chamadas de API
+   - rotas
+   - CORS
+   - variáveis de ambiente
+   - configuração do Docker
+   - conexão com banco de dados
+   - autenticação/login
+   - cadastro
+   - grupos
+   - qualquer outra funcionalidade quebrada
+4. Garantir que o front-end converse corretamente com o back-end.
+5. Garantir que o back-end esteja configurado corretamente para rodar localmente e com Docker.
+6. Remover qualquer uso de placeholder, mock, dado falso ou comportamento incompleto.
+7. Ajustar o que for necessário para a aplicação funcionar de ponta a ponta.
+8. Se encontrar código ruim, duplicado, inconsistente ou inseguro, refatore.
+9. Se houver erro de ambiente, compose, porta, host, variável ou conexão, corrija também.
+10. Ao final, me entregue:
+   - um resumo do que estava errado
+   - o que foi corrigido
+   - os arquivos alterados
+   - instruções exatas para executar o projeto corretamente
+
+Regras importantes:
+- Não invente dados.
+- Não deixe nenhuma funcionalidade apenas “aparentemente funcionando”.
+- Não use placeholders.
+- Não faça suposições sem verificar o código.
+- Se algo depender de configuração, ajuste o código e explique exatamente o que precisa ser configurado.
+- Priorize uma solução simples, estável e pronta para uso.
+- Se encontrar problemas estruturais, resolva a causa raiz.
+- Mantenha compatibilidade com a arquitetura atual do projeto, mas pode refatorar se necessário para que tudo funcione.
+
+Critério de sucesso:
+- O front abre corretamente.
+- O login funciona.
+- O cadastro funciona.
+- A busca/puxada de dados funciona.
+- Os grupos funcionam.
+- O backend responde corretamente.
+- O banco conecta corretamente.
+- O projeto sobe localmente e com Docker sem erros críticos.
+
+Antes de modificar qualquer coisa, leia as duas pastas com atenção e identifique a causa raiz dos problemas.
+Depois faça as correções necessárias diretamente no código.
+```
+
+Se você quiser, eu também posso adaptar esse prompt para ficar mais “agressivo”, mais técnico, ou já pronto para um projeto com React + Node + Docker + PostgreSQL/MySQL.

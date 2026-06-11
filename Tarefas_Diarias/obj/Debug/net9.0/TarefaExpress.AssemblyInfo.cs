@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TarefaExpress")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+84ca4d293881cc0c28e6209f678edfc5b6aaa527")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5868b2bb22c9d6db1d2afc7ad167b9e9da6327d0")]
 [assembly: System.Reflection.AssemblyProductAttribute("TarefaExpress")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TarefaExpress")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

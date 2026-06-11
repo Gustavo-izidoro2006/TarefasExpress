@@ -14,7 +14,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: tarefas_diarias
-      MYSQL_USER: tarefas_user
+      MYSQL_USER: tarefas_diarias
       MYSQL_PASSWORD: jesuscristo
     ports:
       - "3307:3306"
@@ -38,7 +38,7 @@ services:
         condition: service_healthy
     environment:
       # Dentro do Docker, "mysql" resolve para o container do MySQL
-      ConnectionStrings__DefaultConnection: "Server=mysql;Port=3306;Database=tarefas_diarias;User=tarefas_user;Password=jesuscristo;"
+      ConnectionStrings__DefaultConnection: "Server=mysql;Port=3306;Database=tarefas_diarias;User=tarefas_diarias;Password=jesuscristo;"
       ASPNETCORE_ENVIRONMENT: Development
       ASPNETCORE_URLS: http://+:8080
     ports:

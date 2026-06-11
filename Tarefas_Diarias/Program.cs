@@ -27,7 +27,7 @@ builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 builder.Services.AddScoped<IGrupoService, GrupoService>();
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
-    ?? "Server=127.0.0.1;Port=3306;Database=tarefas_diarias;User=tarefas_user;Password=jesuscristo;";
+    ?? "Server=mysql;Port=3306;Database=tarefas_diarias;User=tarefas_user;Password=jesuscristo;";
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 {

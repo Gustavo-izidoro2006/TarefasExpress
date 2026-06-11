@@ -61,7 +61,7 @@ export const Header = ({ sidebarOpen, onToggleSidebar }) => {
           style={{
             animation: glitch ? 'glitch 0.2s steps(1) infinite' : 'none',
             textShadow: glitch
-              ? '2px 0 var(--persona-red), -2px 0 var(--persona-blue)'
+              ? '2px 0 var(--p4-gold), -2px 0 var(--p4-white)'
               : 'none',
           }}
         >
@@ -89,12 +89,12 @@ export const Header = ({ sidebarOpen, onToggleSidebar }) => {
           onClick={() => navigate('/configuracoes')}
           style={{ padding: '6px 10px', fontSize: '1rem', lineHeight: 1 }}
           onMouseEnter={e => {
-            e.currentTarget.style.borderColor = 'var(--persona-yellow)';
-            e.currentTarget.style.color = 'var(--persona-yellow)';
+            e.currentTarget.style.borderColor = 'var(--p4-gold)';
+            e.currentTarget.style.color = 'var(--p4-gold)';
           }}
           onMouseLeave={e => {
-            e.currentTarget.style.borderColor = 'var(--persona-border)';
-            e.currentTarget.style.color = 'var(--persona-gray)';
+            e.currentTarget.style.borderColor = 'var(--p4-border)';
+            e.currentTarget.style.color = 'var(--p4-gray)';
           }}
         >
           ⚙

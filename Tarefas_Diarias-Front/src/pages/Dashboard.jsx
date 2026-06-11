@@ -54,7 +54,7 @@ export const Dashboard = () => {
     <div className="page-wrapper" style={{ padding: '24px' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 28, opacity: 0, animation: mounted ? 'slideInLeft 0.4s ease both' : 'none' }}>
         <div>
-          <div style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.72rem', color: 'var(--persona-red)', letterSpacing: '0.18em', marginBottom: 6 }}>
+          <div style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.72rem', color: 'var(--p4-gold)', letterSpacing: '0.18em', marginBottom: 6 }}>
             // VISÃO GERAL
           </div>
           <h1 className="section-title">
@@ -79,19 +79,19 @@ export const Dashboard = () => {
           <div
             key={s.label}
             style={{
-              background: 'var(--persona-card)',
-              border: '1px solid var(--persona-border)',
-              borderLeft: '4px solid var(--persona-red)',
+              background: 'var(--p4-card)',
+              border: '1px solid var(--p4-border)',
+              borderLeft: '4px solid var(--p4-gold)',
               padding: '14px 18px',
               clipPath: 'polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%)',
               opacity: 0,
               animation: mounted ? `slideInUp 0.4s ${0.05 + index * 0.08}s ease both` : 'none',
             }}
           >
-            <div style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: '2.2rem', color: 'var(--persona-red)', lineHeight: 1 }}>
+            <div style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: '2.2rem', color: 'var(--p4-gold)', lineHeight: 1 }}>
               {loading ? '...' : s.value}
             </div>
-            <div style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.68rem', color: 'var(--persona-gray)', letterSpacing: '0.1em' }}>
+            <div style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.68rem', color: 'var(--p4-gray)', letterSpacing: '0.1em' }}>
               {s.label}
             </div>
           </div>
@@ -101,7 +101,7 @@ export const Dashboard = () => {
       <div style={{ marginBottom: 20, opacity: 0, animation: mounted ? 'slideInLeft 0.4s 0.2s ease both' : 'none' }}>
         <input
           className="p-input"
-          placeholder="Buscar categoria..."
+          placeholder=""
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           style={{ width: '100%' }}
@@ -113,14 +113,14 @@ export const Dashboard = () => {
           marginBottom: 20, padding: 14,
           border: '1px solid rgba(230,57,70,0.35)',
           background: 'rgba(230,57,70,0.08)',
-          color: 'var(--persona-white)',
+          color: 'var(--p4-white)',
         }}>
           ⚠ {error}
         </div>
       ) : null}
 
       {loading ? (
-        <div style={{ color: 'var(--persona-gray)', fontFamily: 'Share Tech Mono, monospace', fontSize: '0.85rem', padding: '20px 0' }}>
+        <div style={{ color: 'var(--p4-gray)', fontFamily: 'Share Tech Mono, monospace', fontSize: '0.85rem', padding: '20px 0' }}>
           Carregando dados...
         </div>
       ) : (
@@ -129,9 +129,9 @@ export const Dashboard = () => {
             <div
               key={category.id}
               style={{
-                background: 'var(--persona-card)',
-                border: '1px solid var(--persona-border)',
-                borderLeft: `4px solid ${category.cor || 'var(--persona-red)'}`,
+                background: 'var(--p4-card)',
+                border: '1px solid var(--p4-border)',
+                borderLeft: `4px solid ${category.cor || 'var(--p4-gold)'}`,
                 padding: '18px',
                 clipPath: 'polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%)',
                 opacity: 0,
@@ -143,15 +143,15 @@ export const Dashboard = () => {
               {category.cor && (
                 <div style={{ width: 10, height: 10, borderRadius: '50%', background: category.cor, marginBottom: 8 }} />
               )}
-              <div style={{ fontFamily: 'Rajdhani, sans-serif', fontWeight: 700, fontSize: '1.05rem', color: 'var(--persona-white)', marginBottom: 4 }}>
+              <div style={{ fontFamily: 'Rajdhani, sans-serif', fontWeight: 700, fontSize: '1.05rem', color: 'var(--p4-white)', marginBottom: 4 }}>
                 {category.nome}
               </div>
               {category.descricao && (
-                <div style={{ fontFamily: 'Rajdhani, sans-serif', fontSize: '0.85rem', color: 'var(--persona-gray)', marginBottom: 6 }}>
+                <div style={{ fontFamily: 'Rajdhani, sans-serif', fontSize: '0.85rem', color: 'var(--p4-gray)', marginBottom: 6 }}>
                   {category.descricao}
                 </div>
               )}
-              <div style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.68rem', color: 'var(--persona-gray)' }}>
+              <div style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.68rem', color: 'var(--p4-gray)' }}>
                 ID #{category.id} · {category.ativa !== false ? 'ATIVA' : 'INATIVA'}
               </div>
             </div>

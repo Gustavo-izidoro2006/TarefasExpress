@@ -72,33 +72,33 @@ export const Profile = () => {
   return (
     <div className="page-wrapper" style={{ padding: 24 }}>
       <div style={{ marginBottom: 24, opacity: 0, animation: mounted ? 'slideInLeft 0.4s ease both' : 'none' }}>
-        <div style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.72rem', color: 'var(--persona-red)', letterSpacing: '0.18em', marginBottom: 6 }}>
+        <div style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.72rem', color: 'var(--p4-gold)', letterSpacing: '0.18em', marginBottom: 6 }}>
           // SEU PERFIL REAL
         </div>
         <div className="section-title">PERFIL</div>
       </div>
 
       {loading ? (
-        <div style={{ color: 'var(--persona-gray)' }}>Carregando...</div>
+        <div style={{ color: 'var(--p4-gray)' }}>Carregando...</div>
       ) : (
         <form onSubmit={handleSave} style={{ maxWidth: 520, opacity: 0, animation: mounted ? 'slideInUp 0.4s 0.1s ease both' : 'none' }}>
           <div style={{
             display: 'flex', alignItems: 'center', gap: 20, marginBottom: 28,
-            background: 'var(--persona-card)', border: '1px solid var(--persona-border)',
-            borderLeft: '4px solid var(--persona-red)', padding: '20px',
+            background: 'var(--p4-card)', border: '1px solid var(--p4-border)',
+            borderLeft: '4px solid var(--p4-gold)', padding: '20px',
             clipPath: 'polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%)'
           }}>
-            <div style={{ width: 64, height: 64, background: 'var(--persona-border)', borderRadius: '50%', border: '3px solid var(--persona-red)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2rem' }}>
+            <div style={{ width: 64, height: 64, background: 'var(--p4-border)', borderRadius: '50%', border: '3px solid var(--p4-gold)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2rem' }}>
               👤
             </div>
             <div>
-              <div style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: '1.6rem', letterSpacing: '0.1em', color: 'var(--persona-white)' }}>
+              <div style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: '1.6rem', letterSpacing: '0.1em', color: 'var(--p4-white)' }}>
                 {nomeCompleto || 'USUÁRIO'}
               </div>
-              <div style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.75rem', color: 'var(--persona-yellow)' }}>
+              <div style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.75rem', color: 'var(--p4-gold)' }}>
                 {user?.status === 1 ? 'ATIVO' : user?.status || 'ATIVO'}
               </div>
-              <div style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.72rem', color: 'var(--persona-gray)', marginTop: 2 }}>
+              <div style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.72rem', color: 'var(--p4-gray)', marginTop: 2 }}>
                 {email}
               </div>
             </div>
@@ -110,7 +110,7 @@ export const Profile = () => {
             { label: 'TELEFONE', value: numeroTelefone, set: setNumeroTelefone, type: 'text' },
           ].map((f, i) => (
             <div key={f.label} style={{ marginBottom: 14, opacity: 0, animation: mounted ? `slideInLeft 0.4s ${0.2 + i * 0.07}s ease both` : 'none' }}>
-              <label style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.7rem', color: 'var(--persona-gray)', display: 'block', marginBottom: 5 }}>
+              <label style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.7rem', color: 'var(--p4-gray)', display: 'block', marginBottom: 5 }}>
                 {f.label}
               </label>
               <input
@@ -118,13 +118,13 @@ export const Profile = () => {
                 type={f.type}
                 value={f.value}
                 onChange={(e) => f.set(e.target.value)}
-                placeholder={`Seu ${f.label.toLowerCase()}`}
+                placeholder=""
               />
             </div>
           ))}
 
           <div style={{ marginBottom: 14 }}>
-            <label style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.7rem', color: 'var(--persona-gray)', display: 'block', marginBottom: 5 }}>
+            <label style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.7rem', color: 'var(--p4-gray)', display: 'block', marginBottom: 5 }}>
               BIOGRAFIA
             </label>
             <textarea
@@ -132,16 +132,16 @@ export const Profile = () => {
               rows={4}
               value={biografia}
               onChange={(e) => setBiografia(e.target.value)}
-              placeholder="Conte um pouco sobre você"
+              placeholder=""
               style={{ resize: 'vertical' }}
             />
           </div>
 
           {message ? (
-            <div style={{ color: 'var(--persona-green)', marginBottom: 12 }}>{message}</div>
+            <div style={{ color: 'var(--p4-green)', marginBottom: 12 }}>{message}</div>
           ) : null}
           {error ? (
-            <div style={{ color: 'var(--persona-red)', marginBottom: 12 }}>{error}</div>
+            <div style={{ color: 'var(--p4-gold)', marginBottom: 12 }}>{error}</div>
           ) : null}
 
           <button className="btn-persona" type="submit" disabled={saving} style={{ width: '100%', padding: '13px', marginTop: 8 }}>

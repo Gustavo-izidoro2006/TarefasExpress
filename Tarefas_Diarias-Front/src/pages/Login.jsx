@@ -32,13 +32,13 @@ export const Login = () => {
   return (
     <div style={{
       minHeight: '100vh',
-      background: 'var(--persona-black)',
+      background: 'var(--p4-black)',
       display: 'flex',
       overflow: 'hidden',
     }}>
       <div style={{
         width: '45%',
-        background: 'linear-gradient(135deg, #0a0a0f 0%, #1a0a0f 50%, #0a0a0f 100%)',
+        background: 'linear-gradient(135deg, #0d0c08 0%, #1a1a0a 50%, #0d0c08 100%)',
         position: 'relative',
         overflow: 'hidden',
         display: 'flex',
@@ -49,7 +49,7 @@ export const Login = () => {
           position: 'absolute',
           width: '200%', height: '200%',
           top: '-50%', left: '-50%',
-          background: 'linear-gradient(45deg, transparent 48%, rgba(230,57,70,0.08) 49%, rgba(230,57,70,0.08) 51%, transparent 52%)',
+          background: 'linear-gradient(45deg, transparent 48%, rgba(245,197,24,0.07) 49%, rgba(245,197,24,0.07) 51%, transparent 52%)',
           transform: 'rotate(-15deg)',
         }} />
         <div style={{
@@ -59,11 +59,11 @@ export const Login = () => {
         }}>
           <div style={{
             width: 80, height: 80,
-            background: 'linear-gradient(135deg, var(--persona-red), #ff6b35)',
+            background: 'linear-gradient(135deg, var(--p4-gold), #e8a800)',
             clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             fontSize: '2.2rem',
-            boxShadow: 'var(--shadow-red), 0 0 60px rgba(230,57,70,0.2)',
+            boxShadow: 'var(--shadow-gold), 0 0 60px rgba(245,197,24,0.2)',
             margin: '0 auto 24px',
           }}>
             ✓
@@ -71,15 +71,15 @@ export const Login = () => {
           <div style={{
             fontFamily: 'Bebas Neue, sans-serif',
             fontSize: '3.5rem', letterSpacing: '0.2em',
-            color: 'var(--persona-white)', lineHeight: 0.9,
-            textShadow: '0 0 40px rgba(230,57,70,0.4)',
+            color: 'var(--p4-white)', lineHeight: 0.9,
+            textShadow: '0 0 40px rgba(245,197,24,0.4)',
           }}>
             TAREFA<br />
-            <span style={{ color: 'var(--persona-red)' }}>EXPRESS</span>
+            <span style={{ color: 'var(--p4-gold)' }}>EXPRESS</span>
           </div>
           <div style={{
             fontFamily: 'Share Tech Mono, monospace',
-            fontSize: '0.75rem', color: 'var(--persona-gray)',
+            fontSize: '0.75rem', color: 'var(--p4-gray)',
             letterSpacing: '0.2em', marginTop: 16,
           }}>
             GERENCIE · COLABORE · CONQUISTE
@@ -87,14 +87,14 @@ export const Login = () => {
           <div style={{
             marginTop: 32,
             padding: '14px 20px',
-            background: 'rgba(230,57,70,0.1)',
-            border: '1px solid rgba(230,57,70,0.2)',
+            background: 'rgba(245,197,24,0.08)',
+            border: '1px solid rgba(245,197,24,0.2)',
             textAlign: 'left',
           }}>
-            <div style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.68rem', color: 'var(--persona-gray)', marginBottom: 6 }}>
+            <div style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.68rem', color: 'var(--p4-gray)', marginBottom: 6 }}>
               // CONTA DE DEMONSTRAÇÃO
             </div>
-            <div style={{ fontFamily: 'Rajdhani, sans-serif', fontSize: '0.88rem', color: 'var(--persona-white)' }}>
+            <div style={{ fontFamily: 'Rajdhani, sans-serif', fontSize: '0.88rem', color: 'var(--p4-white)' }}>
               📧 demo@tarefaexpress.com<br />
               🔒 123456
             </div>
@@ -108,14 +108,14 @@ export const Login = () => {
         alignItems: 'center',
         justifyContent: 'center',
         padding: '40px 60px',
-        background: 'var(--persona-dark)',
-        borderLeft: '2px solid var(--persona-border)',
+        background: 'var(--p4-dark)',
+        borderLeft: '2px solid var(--p4-border)',
       }}>
         <form onSubmit={handleLogin} style={{ width: '100%', maxWidth: 400 }}>
           <div style={{ marginBottom: 40, animation: 'slideInRight 0.5s ease forwards' }}>
             <div style={{
               fontFamily: 'Share Tech Mono, monospace',
-              fontSize: '0.75rem', color: 'var(--persona-red)',
+              fontSize: '0.75rem', color: 'var(--p4-gold)',
               letterSpacing: '0.2em', marginBottom: 8,
             }}>
               // ACESSO AO SISTEMA
@@ -125,7 +125,7 @@ export const Login = () => {
             </div>
             <div style={{
               fontFamily: 'Rajdhani, sans-serif',
-              color: 'var(--persona-gray)', fontSize: '0.95rem',
+              color: 'var(--p4-gray)', fontSize: '0.95rem',
             }}>
               Entre com sua conta cadastrada
             </div>
@@ -135,7 +135,7 @@ export const Login = () => {
             <div>
               <label style={{
                 fontFamily: 'Share Tech Mono, monospace',
-                fontSize: '0.7rem', color: 'var(--persona-gray)',
+                fontSize: '0.7rem', color: 'var(--p4-gray)',
                 letterSpacing: '0.12em', display: 'block', marginBottom: 6,
               }}>
                 ✉ E-MAIL
@@ -144,7 +144,7 @@ export const Login = () => {
                 className="p-input"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="seu@email.com"
+                placeholder=""
                 type="email"
                 autoComplete="email"
               />
@@ -153,7 +153,7 @@ export const Login = () => {
             <div>
               <label style={{
                 fontFamily: 'Share Tech Mono, monospace',
-                fontSize: '0.7rem', color: 'var(--persona-gray)',
+                fontSize: '0.7rem', color: 'var(--p4-gray)',
                 letterSpacing: '0.12em', display: 'block', marginBottom: 6,
               }}>
                 🔒 SENHA
@@ -163,7 +163,7 @@ export const Login = () => {
                   className="p-input"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  placeholder="Sua senha"
+                  placeholder=""
                   type={showPass ? 'text' : 'password'}
                   autoComplete="current-password"
                   style={{ paddingRight: 44 }}
@@ -176,7 +176,7 @@ export const Login = () => {
                     right: 10, top: '50%',
                     transform: 'translateY(-50%)',
                     background: 'transparent', border: 'none',
-                    color: 'var(--persona-gray)', cursor: 'pointer',
+                    color: 'var(--p4-gray)', cursor: 'pointer',
                   }}
                 >
                   {showPass ? '🙈' : '👁'}
@@ -185,7 +185,7 @@ export const Login = () => {
             </div>
 
             {error ? (
-              <div style={{ color: 'var(--persona-red)', fontFamily: 'Rajdhani, sans-serif', fontSize: '0.9rem' }}>
+              <div style={{ color: 'var(--p4-gold)', fontFamily: 'Rajdhani, sans-serif', fontSize: '0.9rem' }}>
                 ⚠ {error}
               </div>
             ) : null}

@@ -37,13 +37,13 @@ export const Register = () => {
   return (
     <div style={{
       minHeight: '100vh',
-      background: 'var(--persona-black)',
+      background: 'var(--p4-black)',
       display: 'flex',
       overflow: 'hidden',
     }}>
       <div style={{
         width: '45%',
-        background: 'linear-gradient(135deg, #0a0a0f 0%, #0a0f1a 50%, #0a0a0f 100%)',
+        background: 'linear-gradient(135deg, #0d0c08 0%, #1a1a0a 50%, #0d0c08 100%)',
         position: 'relative',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
         overflow: 'hidden',
@@ -51,20 +51,20 @@ export const Register = () => {
         <div style={{
           position: 'absolute', width: '200%', height: '200%',
           top: '-50%', left: '-50%',
-          background: 'linear-gradient(45deg, transparent 48%, rgba(74,158,255,0.06) 49%, rgba(74,158,255,0.06) 51%, transparent 52%)',
+          background: 'linear-gradient(45deg, transparent 48%, rgba(245,197,24,0.07) 49%, rgba(245,197,24,0.07) 51%, transparent 52%)',
           transform: 'rotate(-15deg)',
         }} />
         <div style={{ textAlign: 'center', animation: 'slideInLeft 0.6s ease forwards', zIndex: 1 }}>
           <div style={{
             fontFamily: 'Bebas Neue, sans-serif',
             fontSize: '2.8rem', letterSpacing: '0.15em',
-            color: 'var(--persona-white)', lineHeight: 0.9,
+            color: 'var(--p4-white)', lineHeight: 0.9,
           }}>
-            CRIAR<br /><span style={{ color: 'var(--persona-blue)' }}>CONTA</span>
+            CRIAR<br /><span style={{ color: 'var(--p4-blue)' }}>CONTA</span>
           </div>
           <div style={{
             fontFamily: 'Share Tech Mono, monospace',
-            fontSize: '0.7rem', color: 'var(--persona-gray)',
+            fontSize: '0.7rem', color: 'var(--p4-gray)',
             letterSpacing: '0.15em', marginTop: 16,
           }}>
             JUNTE-SE À EQUIPE
@@ -74,14 +74,14 @@ export const Register = () => {
 
       <div style={{
         flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center',
-        padding: '40px 60px', background: 'var(--persona-dark)',
-        borderLeft: '2px solid var(--persona-border)',
+        padding: '40px 60px', background: 'var(--p4-dark)',
+        borderLeft: '2px solid var(--p4-border)',
       }}>
         <form onSubmit={handleRegister} style={{ width: '100%', maxWidth: 400 }}>
           <div style={{ marginBottom: 36, animation: 'slideInRight 0.5s ease forwards' }}>
             <div style={{
               fontFamily: 'Share Tech Mono, monospace',
-              fontSize: '0.75rem', color: 'var(--persona-blue)',
+              fontSize: '0.75rem', color: 'var(--p4-blue)',
               letterSpacing: '0.2em', marginBottom: 8,
             }}>
               // NOVO USUÁRIO
@@ -93,12 +93,12 @@ export const Register = () => {
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
             <div>
-              <label style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.7rem', color: 'var(--persona-gray)', letterSpacing: '0.12em', display: 'block', marginBottom: 6 }}>
+              <label style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.7rem', color: 'var(--p4-gray)', letterSpacing: '0.12em', display: 'block', marginBottom: 6 }}>
                 👤 NOME COMPLETO
               </label>
               <input
                 className="p-input"
-                placeholder="Seu nome completo"
+                placeholder=""
                 value={nome}
                 onChange={(e) => setNome(e.target.value)}
                 autoComplete="name"
@@ -106,12 +106,12 @@ export const Register = () => {
             </div>
 
             <div>
-              <label style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.7rem', color: 'var(--persona-gray)', letterSpacing: '0.12em', display: 'block', marginBottom: 6 }}>
+              <label style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.7rem', color: 'var(--p4-gray)', letterSpacing: '0.12em', display: 'block', marginBottom: 6 }}>
                 ✉ E-MAIL
               </label>
               <input
                 className="p-input"
-                placeholder="seu@email.com"
+                placeholder=""
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -120,13 +120,13 @@ export const Register = () => {
             </div>
 
             <div>
-              <label style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.7rem', color: 'var(--persona-gray)', letterSpacing: '0.12em', display: 'block', marginBottom: 6 }}>
+              <label style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.7rem', color: 'var(--p4-gray)', letterSpacing: '0.12em', display: 'block', marginBottom: 6 }}>
                 🔒 SENHA
               </label>
               <div style={{ position: 'relative' }}>
                 <input
                   className="p-input"
-                  placeholder="Crie uma senha"
+                  placeholder=""
                   type={showPass ? 'text' : 'password'}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
@@ -140,7 +140,7 @@ export const Register = () => {
                     position: 'absolute', right: 10, top: '50%',
                     transform: 'translateY(-50%)',
                     background: 'transparent', border: 'none',
-                    color: 'var(--persona-gray)', cursor: 'pointer',
+                    color: 'var(--p4-gray)', cursor: 'pointer',
                   }}
                 >
                   {showPass ? '🙈' : '👁'}
@@ -149,7 +149,7 @@ export const Register = () => {
             </div>
 
             {error ? (
-              <div style={{ color: 'var(--persona-red)', fontFamily: 'Rajdhani, sans-serif', fontSize: '0.9rem' }}>
+              <div style={{ color: 'var(--p4-gold)', fontFamily: 'Rajdhani, sans-serif', fontSize: '0.9rem' }}>
                 ⚠ {error}
               </div>
             ) : null}

@@ -105,8 +105,8 @@ export const Sidebar = ({ open, onClose }) => {
               className="sidebar__nav-label-text"
               style={{
                 color: isActive(item.path) || hovered === item.id
-                  ? 'var(--persona-white)'
-                  : 'var(--persona-gray)',
+                  ? 'var(--p4-white)'
+                  : 'var(--p4-gray)',
               }}
             >
               {item.label}
@@ -122,12 +122,12 @@ export const Sidebar = ({ open, onClose }) => {
           className="sidebar__logout-btn"
           onClick={handleLogout}
           onMouseEnter={e => {
-            e.currentTarget.style.background = 'rgba(230,57,70,0.15)';
-            e.currentTarget.style.color = 'var(--persona-white)';
+            e.currentTarget.style.background = 'rgba(245,197,24,0.12)';
+            e.currentTarget.style.color = 'var(--p4-white)';
           }}
           onMouseLeave={e => {
-            e.currentTarget.style.background = 'rgba(230,57,70,0.06)';
-            e.currentTarget.style.color = 'var(--persona-gray)';
+            e.currentTarget.style.background = 'rgba(245,197,24,0.05)';
+            e.currentTarget.style.color = 'var(--p4-gray)';
           }}
         >
           <span>⏻</span>

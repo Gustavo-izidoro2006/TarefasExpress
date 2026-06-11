@@ -167,9 +167,9 @@ export const GroupDetail = () => {
   });
 
   const getPrioColor = (prio) => {
-    if (prio === 'Alta') return 'var(--persona-red)';
-    if (prio === 'Média') return 'var(--persona-yellow)';
-    return 'var(--persona-green)';
+    if (prio === 'Alta') return 'var(--p4-gold)';
+    if (prio === 'Média') return 'var(--p4-gold)';
+    return 'var(--p4-green)';
   };
 
   // ─── OPERAÇÕES DE MEMBROS ───────────────────────────────────────────────
@@ -284,7 +284,7 @@ export const GroupDetail = () => {
 
   if (loadingGrupo) {
     return (
-      <div className="page-wrapper" style={{ padding: 24, color: 'var(--persona-gray)' }}>
+      <div className="page-wrapper" style={{ padding: 24, color: 'var(--p4-gray)' }}>
         Carregando informações do grupo...
       </div>
     );
@@ -294,7 +294,7 @@ export const GroupDetail = () => {
     return (
       <div className="page-wrapper" style={{ padding: 24 }}>
         <button onClick={() => navigate('/grupos')} className="btn-ghost" style={{ marginBottom: 16 }}>← VOLTAR</button>
-        <div style={{ color: 'var(--persona-red)', fontFamily: 'Rajdhani, sans-serif' }}>
+        <div style={{ color: 'var(--p4-gold)', fontFamily: 'Rajdhani, sans-serif' }}>
           ⚠ {grupoError || 'Grupo não encontrado.'}
         </div>
       </div>
@@ -309,12 +309,12 @@ export const GroupDetail = () => {
       <div style={{ display: 'flex', gap: 16, alignItems: 'center', marginBottom: 18, flexWrap: 'wrap' }}>
         <button onClick={() => navigate('/grupos')} className="btn-ghost">← GRUPOS</button>
         <div style={{ flex: 1 }}>
-          <div style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.72rem', color: 'var(--persona-red)', letterSpacing: '0.18em' }}>
+          <div style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.72rem', color: 'var(--p4-gold)', letterSpacing: '0.18em' }}>
             // GRUPO DE COLABORAÇÃO · {mapTipoGrupo[grupo.tipo]?.toUpperCase()}
           </div>
           <div className="section-title" style={{ fontSize: '2rem', marginTop: 4 }}>{grupo.nome}</div>
           {grupo.descricao && (
-            <p style={{ color: 'var(--persona-gray)', fontFamily: 'Rajdhani, sans-serif', margin: '4px 0 0' }}>
+            <p style={{ color: 'var(--p4-gray)', fontFamily: 'Rajdhani, sans-serif', margin: '4px 0 0' }}>
               {grupo.descricao}
             </p>
           )}
@@ -324,7 +324,7 @@ export const GroupDetail = () => {
       {/* Tabs Switcher */}
       <div style={{
         display: 'flex',
-        borderBottom: '1px solid var(--persona-border)',
+        borderBottom: '1px solid var(--p4-border)',
         marginBottom: 20,
         gap: 4,
       }}>
@@ -339,10 +339,10 @@ export const GroupDetail = () => {
             onClick={() => setActiveTab(tab.key)}
             style={{
               padding: '12px 20px',
-              background: activeTab === tab.key ? 'var(--persona-card)' : 'transparent',
+              background: activeTab === tab.key ? 'var(--p4-card)' : 'transparent',
               border: 'none',
-              borderBottom: activeTab === tab.key ? '3px solid var(--persona-red)' : '3px solid transparent',
-              color: activeTab === tab.key ? 'var(--persona-white)' : 'var(--persona-gray)',
+              borderBottom: activeTab === tab.key ? '3px solid var(--p4-gold)' : '3px solid transparent',
+              color: activeTab === tab.key ? 'var(--p4-white)' : 'var(--p4-gray)',
               fontFamily: 'Share Tech Mono, monospace',
               fontSize: '0.85rem',
               cursor: 'pointer',
@@ -361,7 +361,7 @@ export const GroupDetail = () => {
             {/* Listagem */}
             <div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
-                <div style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.75rem', color: 'var(--persona-gray)' }}>
+                <div style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.75rem', color: 'var(--p4-gray)' }}>
                   // TAREFAS ATIVAS
                 </div>
                 <div style={{ display: 'flex', gap: 6 }}>
@@ -373,8 +373,8 @@ export const GroupDetail = () => {
                       style={{
                         padding: '4px 8px',
                         fontSize: '0.7rem',
-                        backgroundColor: filtroTarefa === f ? 'var(--persona-border)' : 'transparent',
-                        color: filtroTarefa === f ? 'var(--persona-white)' : 'var(--persona-gray)',
+                        backgroundColor: filtroTarefa === f ? 'var(--p4-border)' : 'transparent',
+                        color: filtroTarefa === f ? 'var(--p4-white)' : 'var(--p4-gray)',
                       }}
                     >
                       {f.toUpperCase()}
@@ -384,14 +384,14 @@ export const GroupDetail = () => {
               </div>
 
               {loadingTarefas ? (
-                <div style={{ color: 'var(--persona-gray)', padding: 20 }}>Carregando tarefas...</div>
+                <div style={{ color: 'var(--p4-gray)', padding: 20 }}>Carregando tarefas...</div>
               ) : filteredTarefas.length === 0 ? (
                 <div style={{
-                  background: 'var(--persona-card)',
-                  border: '1px solid var(--persona-border)',
+                  background: 'var(--p4-card)',
+                  border: '1px solid var(--p4-border)',
                   padding: 24,
                   textAlign: 'center',
-                  color: 'var(--persona-gray)',
+                  color: 'var(--p4-gray)',
                   fontFamily: 'Rajdhani, sans-serif'
                 }}>
                   Nenhuma tarefa nesta visualização.
@@ -402,9 +402,9 @@ export const GroupDetail = () => {
                     <div
                       key={t.id}
                       style={{
-                        background: 'var(--persona-card)',
-                        border: '1px solid var(--persona-border)',
-                        borderLeft: `4px solid ${t.concluida ? 'var(--persona-green)' : getPrioColor(t.prioridade)}`,
+                        background: 'var(--p4-card)',
+                        border: '1px solid var(--p4-border)',
+                        borderLeft: `4px solid ${t.concluida ? 'var(--p4-green)' : getPrioColor(t.prioridade)}`,
                         padding: 14,
                         display: 'flex',
                         alignItems: 'center',
@@ -421,7 +421,7 @@ export const GroupDetail = () => {
                             width: 18,
                             height: 18,
                             cursor: 'pointer',
-                            accentColor: 'var(--persona-red)',
+                            accentColor: 'var(--p4-gold)',
                           }}
                         />
                         <div>
@@ -430,18 +430,18 @@ export const GroupDetail = () => {
                               fontFamily: 'Rajdhani, sans-serif',
                               fontWeight: 700,
                               fontSize: '1rem',
-                              color: t.concluida ? 'var(--persona-gray)' : 'var(--persona-white)',
+                              color: t.concluida ? 'var(--p4-gray)' : 'var(--p4-white)',
                               textDecoration: t.concluida ? 'line-through' : 'none',
                             }}
                           >
                             {t.titulo}
                           </div>
                           {t.desc && (
-                            <div style={{ fontSize: '0.82rem', color: 'var(--persona-gray)', fontFamily: 'Rajdhani, sans-serif' }}>
+                            <div style={{ fontSize: '0.82rem', color: 'var(--p4-gray)', fontFamily: 'Rajdhani, sans-serif' }}>
                               {t.desc}
                             </div>
                           )}
-                          <div style={{ display: 'flex', gap: 10, marginTop: 4, fontFamily: 'Share Tech Mono, monospace', fontSize: '0.65rem', color: 'var(--persona-gray)' }}>
+                          <div style={{ display: 'flex', gap: 10, marginTop: 4, fontFamily: 'Share Tech Mono, monospace', fontSize: '0.65rem', color: 'var(--p4-gray)' }}>
                             <span>PRIO: <span style={{ color: getPrioColor(t.prioridade) }}>{t.prioridade.toUpperCase()}</span></span>
                             {t.prazo && <span>LIMITE: {t.prazo} ({t.prazoRelativo})</span>}
                           </div>
@@ -462,12 +462,12 @@ export const GroupDetail = () => {
 
             {/* Criar Tarefa */}
             <div style={{
-              background: 'var(--persona-card)',
-              border: '1px solid var(--persona-border)',
+              background: 'var(--p4-card)',
+              border: '1px solid var(--p4-border)',
               padding: 16,
               clipPath: 'polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%)',
             }}>
-              <div style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.7rem', color: 'var(--persona-gray)', marginBottom: 12 }}>
+              <div style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.7rem', color: 'var(--p4-gray)', marginBottom: 12 }}>
                 // ADICIONAR TAREFA
               </div>
               <form onSubmit={handleCreateTarefa} style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
@@ -492,12 +492,12 @@ export const GroupDetail = () => {
                 </div>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
                   <div>
-                    <label style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.62rem', color: 'var(--persona-gray)' }}>PRIORIDADE</label>
+                    <label style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.62rem', color: 'var(--p4-gray)' }}>PRIORIDADE</label>
                     <select
                       className="p-input"
                       value={novaTarefaPrio}
                       onChange={(e) => setNovaTarefaPrio(e.target.value)}
-                      style={{ width: '100%', background: 'var(--persona-dark)', color: 'var(--persona-white)', border: '1px solid var(--persona-border)' }}
+                      style={{ width: '100%', background: 'var(--p4-dark)', color: 'var(--p4-white)', border: '1px solid var(--p4-border)' }}
                     >
                       <option value="Baixa">Baixa</option>
                       <option value="Média">Média</option>
@@ -505,7 +505,7 @@ export const GroupDetail = () => {
                     </select>
                   </div>
                   <div>
-                    <label style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.62rem', color: 'var(--persona-gray)' }}>PRAZO</label>
+                    <label style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.62rem', color: 'var(--p4-gray)' }}>PRAZO</label>
                     <input
                       type="datetime-local"
                       className="p-input"
@@ -519,8 +519,8 @@ export const GroupDetail = () => {
                   {savingTarefa ? 'SALVANDO...' : '+ CRIAR TAREFA'}
                 </button>
               </form>
-              {tarefaMessage && <div style={{ color: 'var(--persona-green)', marginTop: 8, fontSize: '0.85rem' }}>{tarefaMessage}</div>}
-              {tarefaError && <div style={{ color: 'var(--persona-red)', marginTop: 8, fontSize: '0.85rem' }}>⚠ {tarefaError}</div>}
+              {tarefaMessage && <div style={{ color: 'var(--p4-green)', marginTop: 8, fontSize: '0.85rem' }}>{tarefaMessage}</div>}
+              {tarefaError && <div style={{ color: 'var(--p4-gold)', marginTop: 8, fontSize: '0.85rem' }}>⚠ {tarefaError}</div>}
             </div>
           </div>
         </div>
@@ -529,23 +529,23 @@ export const GroupDetail = () => {
       {/* ─── CONTEÚDO DA ABA MEMBROS ─── */}
       {activeTab === 'membros' && (
         <div style={{ animation: 'fadeIn 0.3s' }}>
-          <div style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.75rem', color: 'var(--persona-gray)', marginBottom: 12 }}>
+          <div style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.75rem', color: 'var(--p4-gray)', marginBottom: 12 }}>
             // PARTICIPANTES DO GRUPO ({membros.length})
           </div>
 
           {loadingMembros ? (
-            <div style={{ color: 'var(--persona-gray)', padding: 20 }}>Carregando membros...</div>
+            <div style={{ color: 'var(--p4-gray)', padding: 20 }}>Carregando membros...</div>
           ) : membroError ? (
-            <div style={{ color: 'var(--persona-red)', padding: 10 }}>⚠ {membroError}</div>
+            <div style={{ color: 'var(--p4-gold)', padding: 10 }}>⚠ {membroError}</div>
           ) : (
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 12 }}>
               {membros.map((m) => (
                 <div
                   key={m.id}
                   style={{
-                    background: 'var(--persona-card)',
-                    border: '1px solid var(--persona-border)',
-                    borderLeft: `4px solid ${m.isAdm ? 'var(--persona-red)' : 'var(--persona-blue)'}`,
+                    background: 'var(--p4-card)',
+                    border: '1px solid var(--p4-border)',
+                    borderLeft: `4px solid ${m.isAdm ? 'var(--p4-gold)' : 'var(--p4-blue)'}`,
                     padding: 14,
                     display: 'flex',
                     alignItems: 'center',
@@ -558,29 +558,29 @@ export const GroupDetail = () => {
                       width: 38,
                       height: 38,
                       borderRadius: '50%',
-                      background: 'linear-gradient(135deg, var(--persona-blue), var(--persona-dark))',
+                      background: 'linear-gradient(135deg, var(--p4-blue), var(--p4-dark))',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
                       fontFamily: 'Bebas Neue, sans-serif',
                       fontSize: '1.2rem',
-                      color: 'var(--persona-white)',
-                      border: '1px solid var(--persona-border)'
+                      color: 'var(--p4-white)',
+                      border: '1px solid var(--p4-border)'
                     }}>
                       {m.nome.charAt(0).toUpperCase()}
                     </div>
                     <div>
-                      <div style={{ fontFamily: 'Rajdhani, sans-serif', fontWeight: 700, fontSize: '0.98rem', color: 'var(--persona-white)' }}>
-                        {m.nome} {m.voce && <span style={{ color: 'var(--persona-red)', fontSize: '0.7rem' }}>(VOCÊ)</span>}
+                      <div style={{ fontFamily: 'Rajdhani, sans-serif', fontWeight: 700, fontSize: '0.98rem', color: 'var(--p4-white)' }}>
+                        {m.nome} {m.voce && <span style={{ color: 'var(--p4-gold)', fontSize: '0.7rem' }}>(VOCÊ)</span>}
                       </div>
-                      <div style={{ fontSize: '0.72rem', color: 'var(--persona-gray)', fontFamily: 'Share Tech Mono, monospace' }}>
+                      <div style={{ fontSize: '0.72rem', color: 'var(--p4-gray)', fontFamily: 'Share Tech Mono, monospace' }}>
                         {m.cargo?.toUpperCase()} · {m.email}
                       </div>
                     </div>
                   </div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                    <div style={{ width: 8, height: 8, borderRadius: '50%', background: m.online ? 'var(--persona-green)' : 'var(--persona-gray)' }} />
-                    <span style={{ fontSize: '0.65rem', fontFamily: 'Share Tech Mono, monospace', color: m.online ? 'var(--persona-green)' : 'var(--persona-gray)' }}>
+                    <div style={{ width: 8, height: 8, borderRadius: '50%', background: m.online ? 'var(--p4-green)' : 'var(--p4-gray)' }} />
+                    <span style={{ fontSize: '0.65rem', fontFamily: 'Share Tech Mono, monospace', color: m.online ? 'var(--p4-green)' : 'var(--p4-gray)' }}>
                       {m.online ? 'ON' : 'OFF'}
                     </span>
                   </div>
@@ -595,8 +595,8 @@ export const GroupDetail = () => {
       {activeTab === 'chat' && (
         <div style={{ animation: 'fadeIn 0.3s' }}>
           <div style={{
-            background: 'var(--persona-card)',
-            border: '1px solid var(--persona-border)',
+            background: 'var(--p4-card)',
+            border: '1px solid var(--p4-border)',
             display: 'flex',
             flexDirection: 'column',
             height: '450px',
@@ -604,17 +604,17 @@ export const GroupDetail = () => {
           }}>
             {/* Header do Chat */}
             <div style={{
-              borderBottom: '1px solid var(--persona-border)',
+              borderBottom: '1px solid var(--p4-border)',
               padding: '12px 16px',
-              background: 'var(--persona-dark)',
+              background: 'var(--p4-dark)',
               display: 'flex',
               justifyContent: 'space-between',
               alignItems: 'center',
             }}>
-              <span style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.8rem', color: 'var(--persona-red)' }}>
+              <span style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.8rem', color: 'var(--p4-gold)' }}>
                 // CANAL DE COMUNICAÇÃO ATIVO
               </span>
-              <span style={{ fontSize: '0.7rem', color: 'var(--persona-gray)', fontFamily: 'Share Tech Mono, monospace' }}>
+              <span style={{ fontSize: '0.7rem', color: 'var(--p4-gray)', fontFamily: 'Share Tech Mono, monospace' }}>
                 🟢 ATUALIZAÇÃO AUTOMÁTICA
               </span>
             </div>
@@ -629,10 +629,10 @@ export const GroupDetail = () => {
               gap: 12,
             }}>
               {loadingChat ? (
-                <div style={{ color: 'var(--persona-gray)' }}>Carregando histórico do chat...</div>
+                <div style={{ color: 'var(--p4-gray)' }}>Carregando histórico do chat...</div>
               ) : chatMsgs.length === 0 ? (
                 <div style={{
-                  color: 'var(--persona-gray)',
+                  color: 'var(--p4-gray)',
                   fontFamily: 'Rajdhani, sans-serif',
                   textAlign: 'center',
                   marginTop: 20
@@ -652,18 +652,18 @@ export const GroupDetail = () => {
                     }}
                   >
                     {!msg.meu && (
-                      <div style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.65rem', color: 'var(--persona-gray)', marginBottom: 2 }}>
-                        {msg.autor} · <span style={{ color: 'var(--persona-blue)' }}>{msg.cargo}</span>
+                      <div style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.65rem', color: 'var(--p4-gray)', marginBottom: 2 }}>
+                        {msg.autor} · <span style={{ color: 'var(--p4-blue)' }}>{msg.cargo}</span>
                       </div>
                     )}
                     <div style={{
-                      background: msg.meu ? 'var(--persona-red)' : 'var(--persona-dark)',
-                      border: '1px solid var(--persona-border)',
+                      background: msg.meu ? 'var(--p4-gold)' : 'var(--p4-dark)',
+                      border: '1px solid var(--p4-border)',
                       padding: '10px 14px',
                       borderRadius: 12,
                       borderTopRightRadius: msg.meu ? 0 : 12,
                       borderTopLeftRadius: msg.meu ? 12 : 0,
-                      color: 'var(--persona-white)',
+                      color: 'var(--p4-white)',
                       fontFamily: 'Rajdhani, sans-serif',
                       fontSize: '0.92rem',
                       position: 'relative',
@@ -688,9 +688,9 @@ export const GroupDetail = () => {
 
             {/* Input Form */}
             <form onSubmit={handleSendMsg} style={{
-              borderTop: '1px solid var(--persona-border)',
+              borderTop: '1px solid var(--p4-border)',
               padding: 12,
-              background: 'var(--persona-dark)',
+              background: 'var(--p4-dark)',
               display: 'flex',
               gap: 10,
             }}>
@@ -716,17 +716,17 @@ export const GroupDetail = () => {
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20, alignItems: 'flex-start' }}>
             {/* Gerar Código */}
             <div style={{
-              background: 'var(--persona-card)',
-              border: '1px solid var(--persona-border)',
+              background: 'var(--p4-card)',
+              border: '1px solid var(--p4-border)',
               padding: 18,
               clipPath: 'polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%)',
             }}>
-              <div style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.7rem', color: 'var(--persona-gray)', marginBottom: 12 }}>
+              <div style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.7rem', color: 'var(--p4-gray)', marginBottom: 12 }}>
                 // GERAR NOVO CONVITE
               </div>
               <form onSubmit={handleCreateConvite} style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
                 <div>
-                  <label style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.62rem', color: 'var(--persona-gray)', display: 'block', marginBottom: 4 }}>
+                  <label style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.62rem', color: 'var(--p4-gray)', display: 'block', marginBottom: 4 }}>
                     E-MAIL DO CONVIDADO (OPCIONAL)
                   </label>
                   <input
@@ -742,23 +742,23 @@ export const GroupDetail = () => {
                   {generatingConvite ? 'GERANDO...' : 'GERAR CÓDIGO DE CONVITE'}
                 </button>
               </form>
-              {conviteMessage && <div style={{ color: 'var(--persona-green)', marginTop: 8, fontSize: '0.88rem', fontWeight: 'bold' }}>{conviteMessage}</div>}
-              {conviteError && <div style={{ color: 'var(--persona-red)', marginTop: 8, fontSize: '0.88rem' }}>⚠ {conviteError}</div>}
+              {conviteMessage && <div style={{ color: 'var(--p4-green)', marginTop: 8, fontSize: '0.88rem', fontWeight: 'bold' }}>{conviteMessage}</div>}
+              {conviteError && <div style={{ color: 'var(--p4-gold)', marginTop: 8, fontSize: '0.88rem' }}>⚠ {conviteError}</div>}
             </div>
 
             {/* Convites Ativos */}
             <div>
-              <div style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.75rem', color: 'var(--persona-gray)', marginBottom: 12 }}>
+              <div style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.75rem', color: 'var(--p4-gray)', marginBottom: 12 }}>
                 // CÓDIGOS DE CONVITE ATIVOS
               </div>
               {loadingConvites ? (
-                <div style={{ color: 'var(--persona-gray)' }}>Carregando convites...</div>
+                <div style={{ color: 'var(--p4-gray)' }}>Carregando convites...</div>
               ) : convites.length === 0 ? (
                 <div style={{
-                  background: 'var(--persona-card)',
-                  border: '1px solid var(--persona-border)',
+                  background: 'var(--p4-card)',
+                  border: '1px solid var(--p4-border)',
                   padding: 18,
-                  color: 'var(--persona-gray)',
+                  color: 'var(--p4-gray)',
                   fontFamily: 'Rajdhani, sans-serif'
                 }}>
                   Nenhum código de convite ativo encontrado. Gere um ao lado!
@@ -769,9 +769,9 @@ export const GroupDetail = () => {
                     <div
                       key={c.id}
                       style={{
-                        background: 'var(--persona-card)',
-                        border: '1px solid var(--persona-border)',
-                        borderLeft: '4px solid var(--persona-yellow)',
+                        background: 'var(--p4-card)',
+                        border: '1px solid var(--p4-border)',
+                        borderLeft: '4px solid var(--p4-gold)',
                         padding: '14px 18px',
                         display: 'flex',
                         alignItems: 'center',
@@ -780,10 +780,10 @@ export const GroupDetail = () => {
                       }}
                     >
                       <div>
-                        <div style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: '1.8rem', color: 'var(--persona-yellow)', letterSpacing: '0.05em' }}>
+                        <div style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: '1.8rem', color: 'var(--p4-gold)', letterSpacing: '0.05em' }}>
                           {c.codigo}
                         </div>
-                        <div style={{ fontSize: '0.72rem', color: 'var(--persona-gray)', fontFamily: 'Share Tech Mono, monospace' }}>
+                        <div style={{ fontSize: '0.72rem', color: 'var(--p4-gray)', fontFamily: 'Share Tech Mono, monospace' }}>
                           DESTINATÁRIO: {c.email.toUpperCase()}
                         </div>
                       </div>

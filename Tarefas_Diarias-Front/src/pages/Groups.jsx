@@ -115,7 +115,7 @@ export const Groups = () => {
   return (
     <div className="page-wrapper" style={{ padding: 24 }}>
       <div style={{ marginBottom: 24, opacity: 0, animation: mounted ? 'slideInLeft 0.4s ease both' : 'none' }}>
-        <div style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.72rem', color: 'var(--persona-red)', letterSpacing: '0.18em', marginBottom: 6 }}>
+        <div style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.72rem', color: 'var(--p4-gold)', letterSpacing: '0.18em', marginBottom: 6 }}>
           // GRUPOS DO SISTEMA
         </div>
         <div className="section-title">GRUPOS</div>
@@ -132,13 +132,13 @@ export const Groups = () => {
       }}>
         {/* Form criar grupo */}
         <div style={{
-          background: 'var(--persona-card)',
-          border: '1px solid var(--persona-border)',
-          borderLeft: '4px solid var(--persona-blue)',
+          background: 'var(--p4-card)',
+          border: '1px solid var(--p4-border)',
+          borderLeft: '4px solid var(--p4-blue)',
           padding: 18,
           clipPath: 'polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%)',
         }}>
-          <div style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.7rem', color: 'var(--persona-gray)', marginBottom: 12 }}>
+          <div style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.7rem', color: 'var(--p4-gray)', marginBottom: 12 }}>
             // CRIAR NOVO GRUPO
           </div>
           <form onSubmit={handleCreate} style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
@@ -160,15 +160,15 @@ export const Groups = () => {
               {saving ? 'CRIANDO...' : '+ NOVO GRUPO'}
             </button>
           </form>
-          {message && <div style={{ color: 'var(--persona-green)', marginTop: 8, fontFamily: 'Rajdhani, sans-serif' }}>{message}</div>}
-          {error && <div style={{ color: 'var(--persona-red)', marginTop: 8, fontFamily: 'Rajdhani, sans-serif' }}>⚠ {error}</div>}
+          {message && <div style={{ color: 'var(--p4-green)', marginTop: 8, fontFamily: 'Rajdhani, sans-serif' }}>{message}</div>}
+          {error && <div style={{ color: 'var(--p4-gold)', marginTop: 8, fontFamily: 'Rajdhani, sans-serif' }}>⚠ {error}</div>}
         </div>
 
         {/* Form participar com código */}
         <div style={{
-          background: 'var(--persona-card)',
-          border: '1px solid var(--persona-border)',
-          borderLeft: '4px solid var(--persona-yellow)',
+          background: 'var(--p4-card)',
+          border: '1px solid var(--p4-border)',
+          borderLeft: '4px solid var(--p4-gold)',
           padding: 18,
           clipPath: 'polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%)',
           display: 'flex',
@@ -176,7 +176,7 @@ export const Groups = () => {
           justifyContent: 'space-between',
         }}>
           <div>
-            <div style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.7rem', color: 'var(--persona-gray)', marginBottom: 12 }}>
+            <div style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.7rem', color: 'var(--p4-gray)', marginBottom: 12 }}>
               // PARTICIPAR DE UM GRUPO
             </div>
             <form onSubmit={handleJoin} style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
@@ -195,7 +195,7 @@ export const Groups = () => {
                 disabled={joining}
                 style={{
                   width: '100%',
-                  background: 'linear-gradient(135deg, var(--persona-yellow), #f5a623)',
+                  background: 'linear-gradient(135deg, var(--p4-gold), #f5a623)',
                   border: 'none',
                   color: '#000'
                 }}
@@ -204,8 +204,8 @@ export const Groups = () => {
               </button>
             </form>
           </div>
-          {joinMessage && <div style={{ color: 'var(--persona-green)', marginTop: 8, fontFamily: 'Rajdhani, sans-serif' }}>{joinMessage}</div>}
-          {joinError && <div style={{ color: 'var(--persona-red)', marginTop: 8, fontFamily: 'Rajdhani, sans-serif' }}>⚠ {joinError}</div>}
+          {joinMessage && <div style={{ color: 'var(--p4-green)', marginTop: 8, fontFamily: 'Rajdhani, sans-serif' }}>{joinMessage}</div>}
+          {joinError && <div style={{ color: 'var(--p4-gold)', marginTop: 8, fontFamily: 'Rajdhani, sans-serif' }}>⚠ {joinError}</div>}
         </div>
       </div>
 
@@ -216,18 +216,18 @@ export const Groups = () => {
           { label: 'CARREGANDO', value: loading ? '...' : 'PRONTO' },
         ].map((item, index) => (
           <div key={item.label} style={{
-            background: 'var(--persona-card)',
-            border: '1px solid var(--persona-border)',
-            borderLeft: '4px solid var(--persona-red)',
+            background: 'var(--p4-card)',
+            border: '1px solid var(--p4-border)',
+            borderLeft: '4px solid var(--p4-gold)',
             padding: '14px 18px',
             clipPath: 'polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%)',
             opacity: 0,
             animation: mounted ? `slideInUp 0.4s ${0.15 + index * 0.06}s ease both` : 'none',
           }}>
-            <div style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: '2rem', color: 'var(--persona-red)', lineHeight: 1 }}>
+            <div style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: '2rem', color: 'var(--p4-gold)', lineHeight: 1 }}>
               {item.value}
             </div>
-            <div style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.68rem', color: 'var(--persona-gray)' }}>
+            <div style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.68rem', color: 'var(--p4-gray)' }}>
               {item.label}
             </div>
           </div>
@@ -236,18 +236,18 @@ export const Groups = () => {
 
       {/* Lista de grupos */}
       {loading ? (
-        <div style={{ color: 'var(--persona-gray)', fontFamily: 'Share Tech Mono, monospace', fontSize: '0.85rem', padding: 18 }}>
+        <div style={{ color: 'var(--p4-gray)', fontFamily: 'Share Tech Mono, monospace', fontSize: '0.85rem', padding: 18 }}>
           Carregando grupos...
         </div>
       ) : grupos.length === 0 ? (
         <div style={{
-          background: 'var(--persona-card)',
-          border: '1px solid var(--persona-border)',
-          borderLeft: '4px solid var(--persona-yellow)',
+          background: 'var(--p4-card)',
+          border: '1px solid var(--p4-border)',
+          borderLeft: '4px solid var(--p4-gold)',
           padding: 18,
           clipPath: 'polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%)',
         }}>
-          <p style={{ color: 'var(--persona-gray)', margin: 0, fontFamily: 'Rajdhani, sans-serif' }}>
+          <p style={{ color: 'var(--p4-gray)', margin: 0, fontFamily: 'Rajdhani, sans-serif' }}>
             Nenhum grupo encontrado. Crie o primeiro grupo acima!
           </p>
         </div>
@@ -258,9 +258,9 @@ export const Groups = () => {
               key={g.id}
               onClick={() => navigate(`/grupos/${g.id}`)}
               style={{
-                background: 'var(--persona-card)',
-                border: '1px solid var(--persona-border)',
-                borderLeft: '4px solid var(--persona-blue)',
+                background: 'var(--p4-card)',
+                border: '1px solid var(--p4-border)',
+                borderLeft: '4px solid var(--p4-blue)',
                 padding: '18px',
                 clipPath: 'polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%)',
                 cursor: 'pointer',
@@ -268,15 +268,15 @@ export const Groups = () => {
                 animation: mounted ? `slideInUp 0.4s ${0.08 + i * 0.05}s ease both` : 'none',
               }}
             >
-              <div style={{ fontFamily: 'Rajdhani, sans-serif', fontWeight: 700, fontSize: '1.05rem', color: 'var(--persona-white)', marginBottom: 4 }}>
+              <div style={{ fontFamily: 'Rajdhani, sans-serif', fontWeight: 700, fontSize: '1.05rem', color: 'var(--p4-white)', marginBottom: 4 }}>
                 {g.nome}
               </div>
               {g.descricao && (
-                <div style={{ fontFamily: 'Rajdhani, sans-serif', fontSize: '0.85rem', color: 'var(--persona-gray)', marginBottom: 8 }}>
+                <div style={{ fontFamily: 'Rajdhani, sans-serif', fontSize: '0.85rem', color: 'var(--p4-gray)', marginBottom: 8 }}>
                   {g.descricao}
                 </div>
               )}
-              <div style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.68rem', color: 'var(--persona-blue)' }}>
+              <div style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.68rem', color: 'var(--p4-blue)' }}>
                 {tipoLabel(g.tipo)}
               </div>
             </div>

@@ -78,7 +78,7 @@ export const Categories = () => {
   return (
     <div className="page-wrapper" style={{ padding: 24 }}>
       <div style={{ marginBottom: 24, opacity: 0, animation: mounted ? 'slideInLeft 0.4s ease both' : 'none' }}>
-        <div style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.72rem', color: 'var(--persona-red)', letterSpacing: '0.18em', marginBottom: 6 }}>
+        <div style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.72rem', color: 'var(--p4-gold)', letterSpacing: '0.18em', marginBottom: 6 }}>
           // GERENCIAR CATEGORIAS
         </div>
         <div className="section-title">CATEGORIAS</div>
@@ -93,19 +93,19 @@ export const Categories = () => {
           <div
             key={item.label}
             style={{
-              background: 'var(--persona-card)',
-              border: '1px solid var(--persona-border)',
-              borderLeft: '4px solid var(--persona-red)',
+              background: 'var(--p4-card)',
+              border: '1px solid var(--p4-border)',
+              borderLeft: '4px solid var(--p4-gold)',
               padding: '14px 18px',
               clipPath: 'polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%)',
               opacity: 0,
               animation: mounted ? `slideInUp 0.4s ${0.05 + index * 0.06}s ease both` : 'none',
             }}
           >
-            <div style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: '2rem', color: 'var(--persona-red)', lineHeight: 1 }}>
+            <div style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: '2rem', color: 'var(--p4-gold)', lineHeight: 1 }}>
               {loading ? '...' : item.value}
             </div>
-            <div style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.68rem', color: 'var(--persona-gray)' }}>
+            <div style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.68rem', color: 'var(--p4-gray)' }}>
               {item.label}
             </div>
           </div>
@@ -115,7 +115,7 @@ export const Categories = () => {
       <form onSubmit={handleCreate} style={{ display: 'flex', gap: 10, marginBottom: 18, flexWrap: 'wrap' }}>
         <input
           className="p-input"
-          placeholder="Nova categoria (ex: Financeiro)"
+          placeholder="ex: Trabalho"
           value={nome}
           onChange={(e) => setNome(e.target.value)}
           style={{ flex: '1 1 280px' }}
@@ -126,10 +126,10 @@ export const Categories = () => {
       </form>
 
       {message ? (
-        <div style={{ marginBottom: 14, color: 'var(--persona-green)' }}>{message}</div>
+        <div style={{ marginBottom: 14, color: 'var(--p4-green)' }}>{message}</div>
       ) : null}
       {error ? (
-        <div style={{ marginBottom: 14, color: 'var(--persona-red)' }}>{error}</div>
+        <div style={{ marginBottom: 14, color: 'var(--p4-gold)' }}>{error}</div>
       ) : null}
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 12 }}>
@@ -137,19 +137,19 @@ export const Categories = () => {
           <div
             key={c.id}
             style={{
-              background: 'var(--persona-card)',
-              border: '1px solid var(--persona-border)',
-              borderLeft: `4px solid ${c.ativa === false ? 'var(--persona-gray)' : 'var(--persona-red)'}`,
+              background: 'var(--p4-card)',
+              border: '1px solid var(--p4-border)',
+              borderLeft: `4px solid ${c.ativa === false ? 'var(--p4-gray)' : 'var(--p4-gold)'}`,
               padding: '18px',
               clipPath: 'polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%)',
               opacity: 0,
               animation: mounted ? `slideInUp 0.4s ${0.08 + i * 0.05}s ease both` : 'none',
             }}
           >
-            <div style={{ fontFamily: 'Rajdhani, sans-serif', fontWeight: 700, fontSize: '1rem', color: 'var(--persona-white)', marginBottom: 8 }}>
+            <div style={{ fontFamily: 'Rajdhani, sans-serif', fontWeight: 700, fontSize: '1rem', color: 'var(--p4-white)', marginBottom: 8 }}>
               {c.nome}
             </div>
-            <div style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.68rem', color: 'var(--persona-gray)', marginBottom: 10 }}>
+            <div style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.68rem', color: 'var(--p4-gray)', marginBottom: 10 }}>
               ID #{c.id}
             </div>
 

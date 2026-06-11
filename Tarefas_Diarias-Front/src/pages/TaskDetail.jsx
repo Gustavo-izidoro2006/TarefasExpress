@@ -84,7 +84,7 @@ export const TaskDetail = () => {
 
   if (loading) {
     return (
-      <div className="page-wrapper" style={{ padding: 24, color: 'var(--persona-gray)' }}>
+      <div className="page-wrapper" style={{ padding: 24, color: 'var(--p4-gray)' }}>
         Carregando detalhes da tarefa...
       </div>
     );
@@ -95,7 +95,7 @@ export const TaskDetail = () => {
       <div style={{ display: 'flex', gap: 16, alignItems: 'center', marginBottom: 20 }}>
         <button onClick={() => navigate(-1)} className="btn-ghost">← VOLTAR</button>
         <div>
-          <div style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.72rem', color: 'var(--persona-red)', letterSpacing: '0.18em' }}>
+          <div style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.72rem', color: 'var(--p4-gold)', letterSpacing: '0.18em' }}>
             // DETALHE DA TAREFA
           </div>
           <div className="section-title" style={{ fontSize: '1.8rem', marginTop: 4 }}>
@@ -107,8 +107,8 @@ export const TaskDetail = () => {
       <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: 20, alignItems: 'flex-start' }}>
         {/* Formulário de Edição */}
         <div style={{
-          background: 'var(--persona-card)',
-          border: '1px solid var(--persona-border)',
+          background: 'var(--p4-card)',
+          border: '1px solid var(--p4-border)',
           padding: 24,
           clipPath: 'polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 0 100%)',
           opacity: 0,
@@ -116,7 +116,7 @@ export const TaskDetail = () => {
         }}>
           <form onSubmit={handleUpdate} style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
             <div>
-              <label style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.7rem', color: 'var(--persona-gray)', display: 'block', marginBottom: 6 }}>
+              <label style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.7rem', color: 'var(--p4-gray)', display: 'block', marginBottom: 6 }}>
                 TÍTULO DA TAREFA
               </label>
               <input
@@ -129,7 +129,7 @@ export const TaskDetail = () => {
             </div>
 
             <div>
-              <label style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.7rem', color: 'var(--persona-gray)', display: 'block', marginBottom: 6 }}>
+              <label style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.7rem', color: 'var(--p4-gray)', display: 'block', marginBottom: 6 }}>
                 DESCRIÇÃO
               </label>
               <textarea
@@ -142,14 +142,14 @@ export const TaskDetail = () => {
 
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
               <div>
-                <label style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.7rem', color: 'var(--persona-gray)', display: 'block', marginBottom: 6 }}>
+                <label style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.7rem', color: 'var(--p4-gray)', display: 'block', marginBottom: 6 }}>
                   PRIORIDADE
                 </label>
                 <select
                   className="p-input"
                   value={prioridade}
                   onChange={(e) => setPrioridade(e.target.value)}
-                  style={{ width: '100%', background: 'var(--persona-dark)', color: 'var(--persona-white)', border: '1px solid var(--persona-border)' }}
+                  style={{ width: '100%', background: 'var(--p4-dark)', color: 'var(--p4-white)', border: '1px solid var(--p4-border)' }}
                 >
                   <option value="Baixa">Baixa</option>
                   <option value="Média">Média</option>
@@ -158,7 +158,7 @@ export const TaskDetail = () => {
               </div>
 
               <div>
-                <label style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.7rem', color: 'var(--persona-gray)', display: 'block', marginBottom: 6 }}>
+                <label style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.7rem', color: 'var(--p4-gray)', display: 'block', marginBottom: 6 }}>
                   PRAZO
                 </label>
                 <input
@@ -177,9 +177,9 @@ export const TaskDetail = () => {
                 id="concluida"
                 checked={concluida}
                 onChange={(e) => setConcluida(e.target.checked)}
-                style={{ width: 18, height: 18, cursor: 'pointer', accentColor: 'var(--persona-red)' }}
+                style={{ width: 18, height: 18, cursor: 'pointer', accentColor: 'var(--p4-gold)' }}
               />
-              <label htmlFor="concluida" style={{ fontFamily: 'Rajdhani, sans-serif', color: 'var(--persona-white)', fontWeight: 700, cursor: 'pointer' }}>
+              <label htmlFor="concluida" style={{ fontFamily: 'Rajdhani, sans-serif', color: 'var(--p4-white)', fontWeight: 700, cursor: 'pointer' }}>
                 MARCAR COMO CONCLUÍDA
               </label>
             </div>
@@ -200,12 +200,12 @@ export const TaskDetail = () => {
           </form>
 
           {success && (
-            <div style={{ color: 'var(--persona-green)', fontFamily: 'Rajdhani, sans-serif', marginTop: 12, fontWeight: 'bold' }}>
+            <div style={{ color: 'var(--p4-green)', fontFamily: 'Rajdhani, sans-serif', marginTop: 12, fontWeight: 'bold' }}>
               ✓ {success}
             </div>
           )}
           {error && (
-            <div style={{ color: 'var(--persona-red)', fontFamily: 'Rajdhani, sans-serif', marginTop: 12 }}>
+            <div style={{ color: 'var(--p4-gold)', fontFamily: 'Rajdhani, sans-serif', marginTop: 12 }}>
               ⚠ {error}
             </div>
           )}
@@ -213,16 +213,16 @@ export const TaskDetail = () => {
 
         {/* Sidebar de Ações */}
         <div style={{
-          background: 'var(--persona-card)',
-          border: '1px solid var(--persona-border)',
-          borderLeft: '4px solid var(--persona-red)',
+          background: 'var(--p4-card)',
+          border: '1px solid var(--p4-border)',
+          borderLeft: '4px solid var(--p4-gold)',
           padding: 18,
           clipPath: 'polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%)',
         }}>
-          <div style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.7rem', color: 'var(--persona-gray)', marginBottom: 12 }}>
+          <div style={{ fontFamily: 'Share Tech Mono, monospace', fontSize: '0.7rem', color: 'var(--p4-gray)', marginBottom: 12 }}>
             // ZONA DE PERIGO
           </div>
-          <p style={{ fontFamily: 'Rajdhani, sans-serif', color: 'var(--persona-gray)', fontSize: '0.85rem', marginBottom: 16 }}>
+          <p style={{ fontFamily: 'Rajdhani, sans-serif', color: 'var(--p4-gray)', fontSize: '0.85rem', marginBottom: 16 }}>
             A exclusão da tarefa é permanente e não poderá ser desfeita. Todos os dados associados a esta tarefa serão removidos do sistema.
           </p>
           <button
